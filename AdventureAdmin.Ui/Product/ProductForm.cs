@@ -57,7 +57,6 @@ public partial class ProductForm : Form
                 ListPrice = numListPrice.Value,
                 Size = string.IsNullOrWhiteSpace(txtSize.Text) ? null : txtSize.Text.Trim(),
                 Weight = string.IsNullOrWhiteSpace(txtWeight.Text) ? null : decimal.Parse(txtWeight.Text),
-                ProductCategoryId = cmbCategory.SelectedIndex == -1 ? null : (int?)cmbCategory.SelectedValue,
                 ProductModelId = cmbModel.SelectedIndex == -1 ? null : (int?)cmbModel.SelectedValue,
                 SellStartDate = dtpSellStart.Value,
                 SellEndDate = chkSellEnd.Checked ? dtpSellEnd.Value : null,

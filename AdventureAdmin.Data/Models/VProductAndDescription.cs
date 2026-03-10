@@ -18,8 +18,9 @@ public partial class VProductAndDescription
     [StringLength(50)]
     public string ProductModel { get; set; } = null!;
 
+    [Column("CultureID")]
     [StringLength(6)]
-    public string Culture { get; set; } = null!;
+    public string CultureId { get; set; } = null!;
 
     [StringLength(400)]
     public string Description { get; set; } = null!;

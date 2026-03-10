@@ -10,7 +10,7 @@ namespace AdventureAdmin.Data.Models;
 /// Individual products associated with a specific sales order. See SalesOrderHeader.
 /// </summary>
 [PrimaryKey("SalesOrderId", "SalesOrderDetailId")]
-[Table("SalesOrderDetail", Schema = "SalesLT")]
+[Table("SalesOrderDetail", Schema = "Sales")]
 [Index("Rowguid", Name = "AK_SalesOrderDetail_rowguid", IsUnique = true)]
 [Index("ProductId", Name = "IX_SalesOrderDetail_ProductID")]
 public partial class SalesOrderDetail
@@ -30,6 +30,12 @@ public partial class SalesOrderDetail
     public int SalesOrderDetailId { get; set; }
 
     /// <summary>
+    /// Shipment tracking number supplied by the shipper.
+    /// </summary>
+    [StringLength(25)]
+    public string? CarrierTrackingNumber { get; set; }
+
+    /// <summary>
     /// Quantity ordered per product.
     /// </summary>
     public short OrderQty { get; set; }
@@ -39,6 +45,12 @@ public partial class SalesOrderDetail
     /// </summary>
     [Column("ProductID")]
     public int ProductId { get; set; }
+
+    /// <summary>
+    /// Promotional code. Foreign key to SpecialOffer.SpecialOfferID.
+    /// </summary>
+    [Column("SpecialOfferID")]
+    public int SpecialOfferId { get; set; }
 
     /// <summary>
     /// Selling price of a single product.
@@ -70,11 +82,11 @@ public partial class SalesOrderDetail
     [Column(TypeName = "datetime")]
     public DateTime ModifiedDate { get; set; }
 
-    [ForeignKey("ProductId")]
-    [InverseProperty("SalesOrderDetails")]
-    public virtual Product Product { get; set; } = null!;
-
     [ForeignKey("SalesOrderId")]
     [InverseProperty("SalesOrderDetails")]
     public virtual SalesOrderHeader SalesOrder { get; set; } = null!;
+
+    [ForeignKey("SpecialOfferId, ProductId")]
+    [InverseProperty("SalesOrderDetails")]
+    public virtual SpecialOfferProduct SpecialOfferProduct { get; set; } = null!;
 }

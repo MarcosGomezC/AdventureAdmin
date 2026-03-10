@@ -7,92 +7,45 @@ using Microsoft.EntityFrameworkCore;
 namespace AdventureAdmin.Data.Models;
 
 /// <summary>
-/// Customer information.
+/// Current customer information. Also see the Person and Store tables.
 /// </summary>
-[Table("Customer", Schema = "SalesLT")]
+[Table("Customer", Schema = "Sales")]
+[Index("AccountNumber", Name = "AK_Customer_AccountNumber", IsUnique = true)]
 [Index("Rowguid", Name = "AK_Customer_rowguid", IsUnique = true)]
-[Index("EmailAddress", Name = "IX_Customer_EmailAddress")]
+[Index("TerritoryId", Name = "IX_Customer_TerritoryID")]
 public partial class Customer
 {
     /// <summary>
-    /// Primary key for Customer records.
+    /// Primary key.
     /// </summary>
     [Key]
     [Column("CustomerID")]
     public int CustomerId { get; set; }
 
     /// <summary>
-    /// 0 = The data in FirstName and LastName are stored in western style (first name, last name) order.  1 = Eastern style (last name, first name) order.
+    /// Foreign key to Person.BusinessEntityID
     /// </summary>
-    public bool NameStyle { get; set; }
+    [Column("PersonID")]
+    public int? PersonId { get; set; }
 
     /// <summary>
-    /// A courtesy title. For example, Mr. or Ms.
+    /// Foreign key to Store.BusinessEntityID
     /// </summary>
-    [StringLength(8)]
-    public string? Title { get; set; }
+    [Column("StoreID")]
+    public int? StoreId { get; set; }
 
     /// <summary>
-    /// First name of the person.
+    /// ID of the territory in which the customer is located. Foreign key to SalesTerritory.SalesTerritoryID.
     /// </summary>
-    [StringLength(50)]
-    public string FirstName { get; set; } = null!;
+    [Column("TerritoryID")]
+    public int? TerritoryId { get; set; }
 
     /// <summary>
-    /// Middle name or middle initial of the person.
-    /// </summary>
-    [StringLength(50)]
-    public string? MiddleName { get; set; }
-
-    /// <summary>
-    /// Last name of the person.
-    /// </summary>
-    [StringLength(50)]
-    public string LastName { get; set; } = null!;
-
-    /// <summary>
-    /// Surname suffix. For example, Sr. or Jr.
-    /// </summary>
-    [StringLength(10)]
-    public string? Suffix { get; set; }
-
-    /// <summary>
-    /// The customer&apos;s organization.
-    /// </summary>
-    [StringLength(128)]
-    public string? CompanyName { get; set; }
-
-    /// <summary>
-    /// The customer&apos;s sales person, an employee of AdventureWorks Cycles.
-    /// </summary>
-    [StringLength(256)]
-    public string? SalesPerson { get; set; }
-
-    /// <summary>
-    /// E-mail address for the person.
-    /// </summary>
-    [StringLength(50)]
-    public string? EmailAddress { get; set; }
-
-    /// <summary>
-    /// Phone number associated with the person.
-    /// </summary>
-    [StringLength(25)]
-    public string? Phone { get; set; }
-
-    /// <summary>
-    /// Password for the e-mail account.
-    /// </summary>
-    [StringLength(128)]
-    [Unicode(false)]
-    public string PasswordHash { get; set; } = null!;
-
-    /// <summary>
-    /// Random value concatenated with the password string before the password is hashed.
+    /// Unique number identifying the customer assigned by the accounting system.
     /// </summary>
     [StringLength(10)]
     [Unicode(false)]
-    public string PasswordSalt { get; set; } = null!;
+    public string AccountNumber { get; set; } = null!;
 
     /// <summary>
     /// ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample.
@@ -106,9 +59,18 @@ public partial class Customer
     [Column(TypeName = "datetime")]
     public DateTime ModifiedDate { get; set; }
 
-    [InverseProperty("Customer")]
-    public virtual ICollection<CustomerAddress> CustomerAddresses { get; set; } = new List<CustomerAddress>();
+    [ForeignKey("PersonId")]
+    [InverseProperty("Customers")]
+    public virtual Person? Person { get; set; }
 
     [InverseProperty("Customer")]
     public virtual ICollection<SalesOrderHeader> SalesOrderHeaders { get; set; } = new List<SalesOrderHeader>();
+
+    [ForeignKey("StoreId")]
+    [InverseProperty("Customers")]
+    public virtual Store? Store { get; set; }
+
+    [ForeignKey("TerritoryId")]
+    [InverseProperty("Customers")]
+    public virtual SalesTerritory? Territory { get; set; }
 }

@@ -1,0 +1,5 @@
+Scaffold-DbContext "Server=Enel-xps;Database=AdventureWorksDb;Trusted_Connection=True;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -Context AdventureWorksContext -ContextDir Context -OutputDir Models -DataAnnotations -Force -ErrorAction Continue
+
+dotnet tool install --global dotnet-ef
+
+dotnet ef dbcontext scaffold "Server=Enel-xps;Database=AdventureWorksDb;Trusted_Connection=True;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -o Models --context-dir Context -c AdventureWorksContext -d -f

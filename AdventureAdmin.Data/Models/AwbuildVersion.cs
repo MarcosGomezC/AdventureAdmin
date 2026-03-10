@@ -7,15 +7,15 @@ using Microsoft.EntityFrameworkCore;
 namespace AdventureAdmin.Data.Models;
 
 /// <summary>
-/// Current version number of the AdventureWorksLT 2012 sample database. 
+/// Current version number of the AdventureWorks 2016 sample database. 
 /// </summary>
-[Keyless]
-[Table("BuildVersion")]
-public partial class BuildVersion
+[Table("AWBuildVersion")]
+public partial class AwbuildVersion
 {
     /// <summary>
-    /// Primary key for BuildVersion records.
+    /// Primary key for AWBuildVersion records.
     /// </summary>
+    [Key]
     [Column("SystemInformationID")]
     public byte SystemInformationId { get; set; }
 

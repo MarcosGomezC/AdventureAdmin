@@ -9,10 +9,9 @@ namespace AdventureAdmin.Data.Models;
 /// <summary>
 /// Cross-reference table mapping product descriptions and the language the description is written in.
 /// </summary>
-[PrimaryKey("ProductModelId", "ProductDescriptionId", "Culture")]
-[Table("ProductModelProductDescription", Schema = "SalesLT")]
-[Index("Rowguid", Name = "AK_ProductModelProductDescription_rowguid", IsUnique = true)]
-public partial class ProductModelProductDescription
+[PrimaryKey("ProductModelId", "ProductDescriptionId", "CultureId")]
+[Table("ProductModelProductDescriptionCulture", Schema = "Production")]
+public partial class ProductModelProductDescriptionCulture
 {
     /// <summary>
     /// Primary key. Foreign key to ProductModel.ProductModelID.
@@ -29,14 +28,12 @@ public partial class ProductModelProductDescription
     public int ProductDescriptionId { get; set; }
 
     /// <summary>
-    /// The culture for which the description is written
+    /// Culture identification number. Foreign key to Culture.CultureID.
     /// </summary>
     [Key]
+    [Column("CultureID")]
     [StringLength(6)]
-    public string Culture { get; set; } = null!;
-
-    [Column("rowguid")]
-    public Guid Rowguid { get; set; }
+    public string CultureId { get; set; } = null!;
 
     /// <summary>
     /// Date and time the record was last updated.
@@ -44,11 +41,15 @@ public partial class ProductModelProductDescription
     [Column(TypeName = "datetime")]
     public DateTime ModifiedDate { get; set; }
 
+    [ForeignKey("CultureId")]
+    [InverseProperty("ProductModelProductDescriptionCultures")]
+    public virtual Culture Culture { get; set; } = null!;
+
     [ForeignKey("ProductDescriptionId")]
-    [InverseProperty("ProductModelProductDescriptions")]
+    [InverseProperty("ProductModelProductDescriptionCultures")]
     public virtual ProductDescription ProductDescription { get; set; } = null!;
 
     [ForeignKey("ProductModelId")]
-    [InverseProperty("ProductModelProductDescriptions")]
+    [InverseProperty("ProductModelProductDescriptionCultures")]
     public virtual ProductModel ProductModel { get; set; } = null!;
 }

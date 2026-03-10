@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AdventureAdmin\AdventureAdmin.Data\AdventureAdmin.Data.csproj" />
+    <ProjectReference Include="..\AdventureAdmin.Data\AdventureAdmin.Data.csproj" />
   </ItemGroup>
 
 </Project>

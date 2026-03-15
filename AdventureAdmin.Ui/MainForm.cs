@@ -40,7 +40,7 @@ public partial class MainForm : Form
     private void shipMethodToolStripMenuItem_Click(object sender, EventArgs e)
     {
         var shipMethodList = Program.ServiceProvider.GetRequiredService<ShipMethodList>();
-        shipMethodList.ShowDialog();
+        shipMethodList.Show();
     }
 
     private void phoneNumberTypeToolStripMenuItem_Click(object sender, EventArgs e)

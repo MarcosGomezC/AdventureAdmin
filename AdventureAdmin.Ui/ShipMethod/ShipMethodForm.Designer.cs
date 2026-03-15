@@ -139,6 +139,8 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtName);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "ShipMethodForm";
             Text = "ShipMethodForm";
             Load += ShipMethodForm_Load;

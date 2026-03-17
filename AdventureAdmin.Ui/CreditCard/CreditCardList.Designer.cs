@@ -28,32 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgvCards = new DataGridView();
+            btnNuevo = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgvCards).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvCards
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(23, 52);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(730, 373);
-            dataGridView1.TabIndex = 0;
+            dgvCards.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCards.Location = new Point(13, 47);
+            dgvCards.Margin = new Padding(4, 5, 4, 5);
+            dgvCards.Name = "dgvCards";
+            dgvCards.RowHeadersWidth = 62;
+            dgvCards.Size = new Size(708, 300);
+            dgvCards.TabIndex = 0;
+            dgvCards.CellContentClick += dgvCards_CellContentClick;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.BackColor = SystemColors.ActiveCaption;
+            btnNuevo.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNuevo.Location = new Point(753, 47);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(133, 52);
+            btnNuevo.TabIndex = 1;
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.UseVisualStyleBackColor = false;
+            btnNuevo.Click += btnNuevo_Click;
             // 
             // CreditCardList
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(1143, 750);
+            Controls.Add(btnNuevo);
+            Controls.Add(dgvCards);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "CreditCardList";
             Text = "CreditCardList";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += CreditCardList_Load_1;
+            ((System.ComponentModel.ISupportInitialize)dgvCards).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvCards;
+        private Button btnNuevo;
     }
 }

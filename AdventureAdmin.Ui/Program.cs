@@ -1,8 +1,9 @@
-using System.Configuration;
 using AdventureAdmin.Data.Context;
+using AdventureAdmin.Ui.CreditCard;
 using AdventureAdmin.Ui.Product;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Configuration;
 
 namespace AdventureAdmin;
 
@@ -36,5 +37,7 @@ static class Program
         services.AddTransient<MainForm>();
         services.AddTransient<ProductList>();
         services.AddTransient<ProductForm>();
+        services.AddTransient<CreditCardList>();
+        services.AddTransient<CreditCardForm>();
     }
 }

@@ -1,4 +1,5 @@
 using AdventureAdmin.Data.Context;
+using AdventureAdmin.Ui.CreditCard;
 using AdventureAdmin.Ui.Location;
 using AdventureAdmin.Ui.Product;
 using Microsoft.EntityFrameworkCore;
@@ -41,9 +42,10 @@ static class Program
         services.AddTransient<MainForm>();
         services.AddTransient<ProductList>();
         services.AddTransient<ProductForm>();
+        services.AddTransient<CreditCardList>();
+        services.AddTransient<CreditCardForm>();
         services.AddTransient<LocationList>();
         services.AddTransient<LocationForm>();
-
         services.AddTransient<ProductDescriptionList>();
         services.AddTransient<ProductDescriptionForm>();
     }

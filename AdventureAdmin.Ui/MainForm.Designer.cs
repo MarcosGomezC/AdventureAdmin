@@ -55,112 +55,118 @@ partial class MainForm
         mainMenuStrip.Items.AddRange(new ToolStripItem[] { opcionesToolStripMenuItem });
         mainMenuStrip.Location = new Point(0, 0);
         mainMenuStrip.Name = "mainMenuStrip";
-        mainMenuStrip.Size = new Size(800, 28);
+        mainMenuStrip.Padding = new Padding(8, 2, 0, 2);
+        mainMenuStrip.Size = new Size(1000, 33);
         mainMenuStrip.TabIndex = 0;
         mainMenuStrip.Text = "menuStrip1";
         
         opcionesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { productosToolStripMenuItem, currencyToolStripMenuItem, departmentToolStripMenuItem, shiftToolStripMenuItem, countryRegionToolStripMenuItem, shipMethodToolStripMenuItem, phoneNumberTypeToolStripMenuItem, productDescriptionToolStripMenuItem, addressTypeToolStripMenuItem, businessEntityToolStripMenuItem, locationToolStripMenuItem, specialOfferToolStripMenuItem, productCategoryToolStripMenuItem, cultureToolStripMenuItem, personToolStripMenuItem, creditCardToolStripMenuItem, contactTypeToolStripMenuItem, scrapReasonToolStripMenuItem });
         opcionesToolStripMenuItem.Name = "opcionesToolStripMenuItem";
-        opcionesToolStripMenuItem.Size = new Size(85, 24);
+        opcionesToolStripMenuItem.Size = new Size(103, 29);
         opcionesToolStripMenuItem.Text = "Opciones";
         
         productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-        productosToolStripMenuItem.Size = new Size(224, 26);
+        productosToolStripMenuItem.Size = new Size(266, 34);
         productosToolStripMenuItem.Text = "Productos";
         productosToolStripMenuItem.Click += productosToolStripMenuItem_Click;
         
         currencyToolStripMenuItem.Name = "currencyToolStripMenuItem";
-        currencyToolStripMenuItem.Size = new Size(224, 26);
+        currencyToolStripMenuItem.Size = new Size(266, 34);
         currencyToolStripMenuItem.Text = "Currency";
         currencyToolStripMenuItem.Click += currencyToolStripMenuItem_Click;
         
         departmentToolStripMenuItem.Name = "departmentToolStripMenuItem";
-        departmentToolStripMenuItem.Size = new Size(224, 26);
+        departmentToolStripMenuItem.Size = new Size(266, 34);
         departmentToolStripMenuItem.Text = "Department";
         departmentToolStripMenuItem.Click += departmentToolStripMenuItem_Click;
         
         shiftToolStripMenuItem.Name = "shiftToolStripMenuItem";
-        shiftToolStripMenuItem.Size = new Size(224, 26);
+        shiftToolStripMenuItem.Size = new Size(266, 34);
         shiftToolStripMenuItem.Text = "Shift";
         shiftToolStripMenuItem.Click += shiftToolStripMenuItem_Click;
          
         countryRegionToolStripMenuItem.Name = "countryRegionToolStripMenuItem";
-        countryRegionToolStripMenuItem.Size = new Size(224, 26);
+        countryRegionToolStripMenuItem.Size = new Size(266, 34);
         countryRegionToolStripMenuItem.Text = "CountryRegion";
         countryRegionToolStripMenuItem.Click += countryRegionToolStripMenuItem_Click;
         
         shipMethodToolStripMenuItem.Name = "shipMethodToolStripMenuItem";
-        shipMethodToolStripMenuItem.Size = new Size(224, 26);
+        shipMethodToolStripMenuItem.Size = new Size(266, 34);
         shipMethodToolStripMenuItem.Text = "ShipMethod";
         shipMethodToolStripMenuItem.Click += shipMethodToolStripMenuItem_Click;
         
         phoneNumberTypeToolStripMenuItem.Name = "phoneNumberTypeToolStripMenuItem";
-        phoneNumberTypeToolStripMenuItem.Size = new Size(224, 26);
+        phoneNumberTypeToolStripMenuItem.Size = new Size(266, 34);
         phoneNumberTypeToolStripMenuItem.Text = "PhoneNumberType";
         phoneNumberTypeToolStripMenuItem.Click += phoneNumberTypeToolStripMenuItem_Click;
         
         productDescriptionToolStripMenuItem.Name = "productDescriptionToolStripMenuItem";
-        productDescriptionToolStripMenuItem.Size = new Size(224, 26);
+        productDescriptionToolStripMenuItem.Size = new Size(266, 34);
         productDescriptionToolStripMenuItem.Text = "ProductDescription";
         productDescriptionToolStripMenuItem.Click += productDescriptionToolStripMenuItem_Click;
         
         addressTypeToolStripMenuItem.Name = "addressTypeToolStripMenuItem";
-        addressTypeToolStripMenuItem.Size = new Size(224, 26);
+        addressTypeToolStripMenuItem.Size = new Size(266, 34);
         addressTypeToolStripMenuItem.Text = "AddressType";
         addressTypeToolStripMenuItem.Click += addressTypeToolStripMenuItem_Click;
          
         businessEntityToolStripMenuItem.Name = "businessEntityToolStripMenuItem";
-        businessEntityToolStripMenuItem.Size = new Size(224, 26);
+        businessEntityToolStripMenuItem.Size = new Size(266, 34);
         businessEntityToolStripMenuItem.Text = "BusinessEntity";
         businessEntityToolStripMenuItem.Click += businessEntityToolStripMenuItem_Click;
         
         locationToolStripMenuItem.Name = "locationToolStripMenuItem";
-        locationToolStripMenuItem.Size = new Size(224, 26);
+        locationToolStripMenuItem.Size = new Size(266, 34);
         locationToolStripMenuItem.Text = "Location";
         locationToolStripMenuItem.Click += locationToolStripMenuItem_Click;
         
         specialOfferToolStripMenuItem.Name = "specialOfferToolStripMenuItem";
-        specialOfferToolStripMenuItem.Size = new Size(224, 26);
+        specialOfferToolStripMenuItem.Size = new Size(266, 34);
         specialOfferToolStripMenuItem.Text = "SpecialOffer";
         specialOfferToolStripMenuItem.Click += specialOfferToolStripMenuItem_Click;
         
         productCategoryToolStripMenuItem.Name = "productCategoryToolStripMenuItem";
-        productCategoryToolStripMenuItem.Size = new Size(224, 26);
+        productCategoryToolStripMenuItem.Size = new Size(266, 34);
         productCategoryToolStripMenuItem.Text = "ProductCategory";
         productCategoryToolStripMenuItem.Click += productCategoryToolStripMenuItem_Click;
          
         cultureToolStripMenuItem.Name = "cultureToolStripMenuItem";
-        cultureToolStripMenuItem.Size = new Size(224, 26);
+        cultureToolStripMenuItem.Size = new Size(266, 34);
         cultureToolStripMenuItem.Text = "Culture";
         cultureToolStripMenuItem.Click += cultureToolStripMenuItem_Click;
          
         personToolStripMenuItem.Name = "personToolStripMenuItem";
-        personToolStripMenuItem.Size = new Size(224, 26);
+        personToolStripMenuItem.Size = new Size(266, 34);
         personToolStripMenuItem.Text = "Person";
         personToolStripMenuItem.Click += personToolStripMenuItem_Click;
         
         creditCardToolStripMenuItem.Name = "creditCardToolStripMenuItem";
-        creditCardToolStripMenuItem.Size = new Size(224, 26);
+        creditCardToolStripMenuItem.Size = new Size(266, 34);
         creditCardToolStripMenuItem.Text = "CreditCard";
         creditCardToolStripMenuItem.Click += creditCardToolStripMenuItem_Click;
         
         contactTypeToolStripMenuItem.Name = "contactTypeToolStripMenuItem";
-        contactTypeToolStripMenuItem.Size = new Size(224, 26);
+        contactTypeToolStripMenuItem.Size = new Size(266, 34);
         contactTypeToolStripMenuItem.Text = "ContactType";
         contactTypeToolStripMenuItem.Click += contactTypeToolStripMenuItem_Click;
          
         scrapReasonToolStripMenuItem.Name = "scrapReasonToolStripMenuItem";
-        scrapReasonToolStripMenuItem.Size = new Size(224, 26);
+        scrapReasonToolStripMenuItem.Size = new Size(266, 34);
         scrapReasonToolStripMenuItem.Text = "ScrapReason";
         scrapReasonToolStripMenuItem.Click += scrapReasonToolStripMenuItem_Click;
-        
-        AutoScaleDimensions = new SizeF(8F, 20F);
+        // 
+        // MainForm
+        // 
+        AutoScaleDimensions = new SizeF(10F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(800, 450);
+        ClientSize = new Size(1000, 562);
         Controls.Add(mainMenuStrip);
+        IsMdiContainer = true;
         MainMenuStrip = mainMenuStrip;
+        Margin = new Padding(4);
         Name = "MainForm";
         Text = "Main Form";
+        Load += MainForm_Load;
         mainMenuStrip.ResumeLayout(false);
         mainMenuStrip.PerformLayout();
         ResumeLayout(false);

@@ -1,3 +1,4 @@
+using AdventureAdmin.Ui.Department;
 using AdventureAdmin.Ui.CreditCard;
 using AdventureAdmin.Ui.Location;
 using AdventureAdmin.Ui.Product;
@@ -25,7 +26,8 @@ public partial class MainForm : Form
 
     private void departmentToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        var form = Program.ServiceProvider.GetRequiredService<DepartmentList>();
+        form.Show();
     }
 
     private void shiftToolStripMenuItem_Click(object sender, EventArgs e)

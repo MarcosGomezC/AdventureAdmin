@@ -13,9 +13,9 @@ namespace AdventureAdmin.Ui.ShipMethod
             _context = context;
         }
 
-        private void ShipMethodList_Load(object sender, EventArgs e)
+        private async Task ShipMethodList_Load(object sender, EventArgs e)
         {
-            LoadDataAsync();
+            await LoadDataAsync();
         }
 
         private async Task LoadDataAsync()
@@ -32,10 +32,11 @@ namespace AdventureAdmin.Ui.ShipMethod
             }
         }
 
-        private void nuevoButton_Click(object sender, EventArgs e)
+        private async Task nuevoButton_Click(object sender, EventArgs e)
         {
             var shipMethodForm = Program.ServiceProvider.GetRequiredService<ShipMethodForm>();
             shipMethodForm.ShowDialog();
+            await LoadDataAsync();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace AdventureAdmin.Ui.ShipMethod
             return valid;
         }
 
-        private async void btnSave_Click(object sender, EventArgs e)
+        private async Task btnSave_Click(object sender, EventArgs e)
         {
             if (!validteForm()) return;
 

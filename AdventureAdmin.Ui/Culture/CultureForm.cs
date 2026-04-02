@@ -1,13 +1,4 @@
 ﻿using AdventureAdmin.Data.Context;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace AdventureAdmin.Ui.Culture
 {
@@ -21,6 +12,12 @@ namespace AdventureAdmin.Ui.Culture
             _context = context;
         }
 
+        private void CultureForm_Load(object sender, EventArgs e)
+        {
+            button1.Text = "Guardar";
+            button1.Click += button1_Click;
+        }
+
         private async void button1_Click(object sender, EventArgs e)
         {
             if (!ValidateForm()) return;
@@ -29,17 +26,17 @@ namespace AdventureAdmin.Ui.Culture
             {
                 button1.Enabled = false;
 
-                var department = new AdventureAdmin.Data.Models.Department
+                var culture = new AdventureAdmin.Data.Models.Culture
                 {
-                    Name = textId.Text.Trim(),
-                    GroupName = textName.Text.Trim(),
+                    CultureId = textId.Text.Trim(),
+                    Name = textName.Text.Trim(),
                     ModifiedDate = DateTime.Now
                 };
 
-                _context.Departments.Add(department);
+                _context.Cultures.Add(culture);
                 await _context.SaveChangesAsync();
 
-                MessageBox.Show("Departamento creado correctamente.", "Éxito",
+                MessageBox.Show("Cultura creada correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.DialogResult = DialogResult.OK;
@@ -54,11 +51,6 @@ namespace AdventureAdmin.Ui.Culture
             {
                 button1.Enabled = true;
             }
-        }
-
-        private void CultureForm_Load(object sender, EventArgs e)
-        {
-
         }
 
         private bool ValidateForm()

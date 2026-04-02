@@ -21,5 +21,10 @@ namespace AdventureAdmin.Ui.Culture
             var Culture = Program.ServiceProvider.GetRequiredService<CultureForm>();
             Culture.ShowDialog();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

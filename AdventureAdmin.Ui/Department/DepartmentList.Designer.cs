@@ -44,9 +44,8 @@
             // button1
             // 
             button1.AutoEllipsis = true;
-            button1.BackColor = Color.Lime;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.BackColor = SystemColors.Control;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             button1.Location = new Point(11, 16);
             button1.Name = "button1";
             button1.Size = new Size(106, 30);

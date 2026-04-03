@@ -34,8 +34,8 @@
             txtName = new TextBox();
             txtGroupName = new TextBox();
             btnGuardar = new Button();
-            btnCancelar = new Button();
             errorProvider1 = new ErrorProvider(components);
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
@@ -78,10 +78,9 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.BackColor = Color.FromArgb(0, 192, 0);
-            btnGuardar.FlatStyle = FlatStyle.Popup;
-            btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardar.ForeColor = Color.White;
+            btnGuardar.BackColor = SystemColors.Control;
+            btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGuardar.ForeColor = Color.Black;
             btnGuardar.Location = new Point(2, 97);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(114, 37);
@@ -90,24 +89,20 @@
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = Color.Red;
-            btnCancelar.FlatStyle = FlatStyle.Popup;
-            btnCancelar.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.ForeColor = Color.White;
-            btnCancelar.Location = new Point(132, 97);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(114, 37);
-            btnCancelar.TabIndex = 5;
-            btnCancelar.TabStop = false;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
-            // 
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = SystemColors.Control;
+            btnCancelar.Location = new Point(122, 97);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(111, 37);
+            btnCancelar.TabIndex = 5;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // DepartmentForm
             // 
@@ -135,7 +130,7 @@
         private TextBox txtName;
         private TextBox txtGroupName;
         private Button btnGuardar;
-        private Button btnCancelar;
         private ErrorProvider errorProvider1;
+        private Button btnCancelar;
     }
 }

@@ -11,7 +11,7 @@ public class LocationService(
     public async Task<Data.Models.Location?> Buscar(int id)
     {
         return await context.Locations
-            .FirstOrDefaultAsync(l => l.LocationId == id);
+            .FirstOrDefaultAsync(x => x.LocationId == id);
     }
 
     public async Task<bool> Eliminar(int id)

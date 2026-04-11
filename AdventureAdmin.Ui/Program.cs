@@ -74,6 +74,7 @@ static class Program
         services.AddTransient<CreditCardService>();
         services.AddTransient<PersonService>();
         services.AddTransient<DepartmentService>();
+        services.AddTransient<LocationService>();
         //services.AddTransient<CreditCardService>();
         //services.AddTransient<ProductCategoryService>();
         //services.AddTransient<CurrencyService>();
@@ -84,7 +85,6 @@ static class Program
         //services.AddTransient<ProductDescriptionService>();
         //services.AddTransient<AddressTypeService>();
         //services.AddTransient<BusinessEntityService>();
-        //services.AddTransient<LocationService>();
         //services.AddTransient<SpecialOfferService>();
         //services.AddTransient<CultureService>();
         //services.AddTransient<PersonService>();
@@ -92,4 +92,3 @@ static class Program
         //services.AddTransient<ScrapReasonService>();
     }
 }
-

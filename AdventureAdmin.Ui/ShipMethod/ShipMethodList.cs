@@ -37,5 +37,17 @@ namespace AdventureAdmin.Ui.ShipMethod
             shipMethodForm.ShowDialog();
             await LoadDataAsync();
         }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            if (ShipMethodDataView.SelectedRows.Count > 0)
+            {
+                int id = ShipMethodDataView.SelectedRows[0].Cells[0].Value is int value ? value : 0;
+                var shipMethodForm = Program.ServiceProvider.GetRequiredService<ShipMethodForm>();
+                shipMethodForm.Buscar(id);
+                shipMethodForm.ShowDialog();
+            }
+           
+        }
     }
 }

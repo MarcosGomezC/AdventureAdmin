@@ -1,5 +1,4 @@
-﻿using AdventureAdmin.Data.Context;
-using AdventureAdmin.Ui.Services;
+﻿using AdventureAdmin.Ui.Services;
 
 namespace AdventureAdmin.Ui.ShipMethod
 {
@@ -11,6 +10,22 @@ namespace AdventureAdmin.Ui.ShipMethod
             InitializeComponent();
             _service = service;
         }
+
+        public async void Buscar(int? id)
+        {
+            if (id != null)
+            {
+                var shipMethod = await _service.Buscar(id.Value);
+
+                if (shipMethod is null) return;
+
+                IdText.Text = shipMethod.ShipMethodId.ToString();
+                txtName.Text = shipMethod.Name;
+                numShipBase.Value = shipMethod.ShipBase;
+                numShipRate.Value = shipMethod.ShipRate;
+            }
+        }
+
 
         private bool validateForm()
         {
@@ -48,6 +63,7 @@ namespace AdventureAdmin.Ui.ShipMethod
 
                 var ShipMethod = new Data.Models.ShipMethod
                 {
+                    ShipMethodId = int.TryParse(IdText.Text, out int id) ? id : 0,
                     Name = txtName.Text.Trim(),
                     ShipBase = numShipBase.Value,
                     ShipRate = numShipRate.Value,

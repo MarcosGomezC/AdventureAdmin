@@ -30,6 +30,7 @@
         {
             nuevoButton = new Button();
             ShipMethodDataView = new DataGridView();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)ShipMethodDataView).BeginInit();
             SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             nuevoButton.TabIndex = 2;
             nuevoButton.Text = "✅ Nuevo";
             nuevoButton.UseVisualStyleBackColor = true;
-            nuevoButton.Click += this.nuevoButton_Click;
+            nuevoButton.Click += nuevoButton_Click;
             // 
             // ShipMethodDataView
             // 
@@ -56,11 +57,22 @@
             ShipMethodDataView.Size = new Size(776, 390);
             ShipMethodDataView.TabIndex = 3;
             // 
+            // button1
+            // 
+            button1.Location = new Point(112, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 4;
+            button1.Text = "Modificar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ShipMethodList
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(ShipMethodDataView);
             Controls.Add(nuevoButton);
             Name = "ShipMethodList";
@@ -74,5 +86,6 @@
 
         private Button nuevoButton;
         private DataGridView ShipMethodDataView;
+        private Button button1;
     }
 }

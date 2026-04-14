@@ -6,6 +6,7 @@ partial class ScrapReasonList
 
     private DataGridView scrapReasonsDataGridView;
     private Button nuevoButton;
+    private Button modificarButton;
 
     protected override void Dispose(bool disposing)
     {
@@ -20,6 +21,7 @@ partial class ScrapReasonList
     {
         scrapReasonsDataGridView = new DataGridView();
         nuevoButton = new Button();
+        modificarButton = new Button();
         ((System.ComponentModel.ISupportInitialize)scrapReasonsDataGridView).BeginInit();
         SuspendLayout();
         // 
@@ -48,11 +50,23 @@ partial class ScrapReasonList
         nuevoButton.UseVisualStyleBackColor = true;
         nuevoButton.Click += nuevoButton_Click;
         // 
+        // modificarButton
+        // 
+        modificarButton.Location = new Point(141, 4);
+        modificarButton.Margin = new Padding(4, 4, 4, 4);
+        modificarButton.Name = "modificarButton";
+        modificarButton.Size = new Size(140, 36);
+        modificarButton.TabIndex = 2;
+        modificarButton.Text = "✏️ Modificar";
+        modificarButton.UseVisualStyleBackColor = true;
+        modificarButton.Click += modificarButton_Click;
+        // 
         // ScrapReasonList
         // 
         AutoScaleDimensions = new SizeF(10F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1005, 562);
+        Controls.Add(modificarButton);
         Controls.Add(nuevoButton);
         Controls.Add(scrapReasonsDataGridView);
         Margin = new Padding(4, 4, 4, 4);

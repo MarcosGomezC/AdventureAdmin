@@ -1,36 +1,72 @@
-﻿using AdventureAdmin.Data.Context;
+using AdventureAdmin.Data.Context;
 using Aplicada1.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace AdventureAdmin.Ui.Services
 {
     public class ScrapReasonService(AdventureWorksContext context) : Aplicada1.Core.IService<Data.Models.ScrapReason, int>
     {
-        Task<Data.Models.ScrapReason?> IService<Data.Models.ScrapReason, int>.Buscar(int id)
+        public async Task<Data.Models.ScrapReason?> Buscar(int id)
         {
-            throw new NotImplementedException();
+            return await context.ScrapReasons
+                .FirstOrDefaultAsync(s => s.ScrapReasonId == (short)id);
         }
 
-        Task<bool> IService<Data.Models.ScrapReason, int>.Eliminar(int id)
+        public async Task<bool> Eliminar(int id)
         {
-            throw new NotImplementedException();
+            var entidad = await context.ScrapReasons
+                .FirstOrDefaultAsync(s => s.ScrapReasonId == (short)id);
+
+            if (entidad == null)
+                return false;
+
+            context.ScrapReasons.Remove(entidad);
+            return await context.SaveChangesAsync() > 0;
         }
 
-        public async Task<List<Data.Models.ScrapReason>>GetList(Expression<Func<Data.Models.ScrapReason, bool>> criterio)
+        public async Task<List<Data.Models.ScrapReason>> GetList(Expression<Func<Data.Models.ScrapReason, bool>> criterio)
         {
-            return await context.ScrapReasons.Where(criterio).ToListAsync();
-
+            return await context.ScrapReasons
+                .AsNoTracking()
+                .Where(criterio)
+                .ToListAsync();
         }
 
-        async Task<bool> IService<Data.Models.ScrapReason, int>.Guardar(Data.Models.ScrapReason entidad)
+        public async Task<bool> Guardar(Data.Models.ScrapReason scrapReason)
         {
-            await context.ScrapReasons.AddAsync(entidad);
-            var resultado = await context.SaveChangesAsync();
-            return resultado > 0;
+            if (!await Existe((int)scrapReason.ScrapReasonId))
+                return await Insertar(scrapReason);
+            else
+                return await Modificar(scrapReason);
+        }
+
+        public async Task<bool> Insertar(Data.Models.ScrapReason scrapReason)
+        {
+            scrapReason.ModifiedDate = DateTime.Now;
+            await context.ScrapReasons.AddAsync(scrapReason);
+            return await context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> Existe(int id)
+        {
+            return await context.ScrapReasons.AnyAsync(s => s.ScrapReasonId == (short)id);
+        }
+
+        public async Task<bool> Modificar(Data.Models.ScrapReason scrapReason)
+        {
+            scrapReason.ModifiedDate = DateTime.Now;
+            context.ScrapReasons.Update(scrapReason);
+            return await context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<bool> Actualizar(Data.Models.ScrapReason scrapReason)
+        {
+            scrapReason.ModifiedDate = DateTime.Now;
+            context.Entry(scrapReason).State = EntityState.Modified;
+            return await context.SaveChangesAsync() > 0;
         }
     }
 }

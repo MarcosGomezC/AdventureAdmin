@@ -7,6 +7,7 @@ using AdventureAdmin.Ui.Product;
 using AdventureAdmin.Ui.ProductCategory;
 using Microsoft.Extensions.DependencyInjection;
 using AdventureAdmin.Ui.Culture;
+using AdventureAdmin.Ui.ScrapReason;
 
 namespace AdventureAdmin;
 
@@ -122,7 +123,9 @@ public partial class MainForm : Form
 
     private void scrapReasonToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        var form = Program.ServiceProvider.GetRequiredService<ScrapReasonList>();
+        form.MdiParent = this;
+        form.Show();
     }
 
     private void MainForm_Load(object sender, EventArgs e)

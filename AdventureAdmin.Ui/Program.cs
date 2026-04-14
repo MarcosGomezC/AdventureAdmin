@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
 using Aplicada1.Core;
 using AdventureAdmin.Ui.Culture;
+using AdventureAdmin.Ui.ScrapReason;
 
 
 namespace AdventureAdmin;
@@ -69,6 +70,8 @@ static class Program
         services.AddTransient<ProductCategoryForm>();
         services.AddTransient<CultureForm>();
         services.AddTransient<CultureList>();
+        services.AddTransient<ScrapReasonList>();
+        services.AddTransient<ScrapReasonForm>();
       
         //Services 
         services.AddTransient<CreditCardService>();
@@ -89,7 +92,7 @@ static class Program
         //services.AddTransient<CultureService>();
         //services.AddTransient<PersonService>();
         //services.AddTransient<ContactTypeService>();
-        //services.AddTransient<ScrapReasonService>();
+        services.AddTransient<ScrapReasonService>();
     }
 }
 

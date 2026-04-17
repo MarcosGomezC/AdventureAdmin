@@ -30,40 +30,74 @@
         {
             dataGridView1 = new DataGridView();
             button1 = new Button();
+            btnModificar = new Button();
+            label1 = new Label();
+            btnEliminar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 113);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(2, 95);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1139, 640);
+            dataGridView1.Size = new Size(797, 357);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
             button1.AutoEllipsis = true;
-            button1.BackColor = Color.Lime;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(16, 27);
-            button1.Margin = new Padding(4, 5, 4, 5);
+            button1.BackColor = SystemColors.Control;
+            button1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(12, 48);
             button1.Name = "button1";
             button1.Size = new Size(151, 50);
             button1.TabIndex = 1;
-            button1.Text = "Nuevo";
+            button1.Text = "✚ Nuevo";
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
+            // 
+            // btnModificar
+            // 
+            btnModificar.BackColor = SystemColors.Control;
+            btnModificar.Location = new Point(124, 48);
+            btnModificar.Name = "btnModificar";
+            btnModificar.Size = new Size(105, 30);
+            btnModificar.TabIndex = 2;
+            btnModificar.Text = "✏️ Modificar";
+            btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(155, 25);
+            label1.TabIndex = 3;
+            label1.Text = "Department List";
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.BackColor = SystemColors.Control;
+            btnEliminar.Location = new Point(235, 48);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(105, 30);
+            btnEliminar.TabIndex = 4;
+            btnEliminar.Text = "🗑️ Eliminar";
+            btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // DepartmentList
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
+            ClientSize = new Size(800, 450);
+            Controls.Add(btnEliminar);
+            Controls.Add(label1);
+            Controls.Add(btnModificar);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Margin = new Padding(4, 5, 4, 5);
@@ -72,11 +106,15 @@
             Load += DepartmentList_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private DataGridView dataGridView1;
         private Button button1;
+        private Button btnModificar;
+        public Label label1;
+        private Button btnEliminar;
     }
 }

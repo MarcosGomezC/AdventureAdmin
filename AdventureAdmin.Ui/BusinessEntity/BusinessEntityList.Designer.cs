@@ -1,6 +1,6 @@
 ﻿namespace AdventureAdmin.Ui.Business_Entity
 {
-    partial class Business_Entity_list
+    partial class BusinessEntityList
     {
         /// <summary>
         /// Required designer variable.
@@ -28,39 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            Guardar = new Button();
             dataGridView1 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // button1
+            // Guardar
             // 
-            button1.Location = new Point(15, 7);
-            button1.Margin = new Padding(2, 2, 2, 2);
-            button1.Name = "button1";
-            button1.Size = new Size(78, 20);
-            button1.TabIndex = 0;
-            button1.Text = "Inicio";
-            button1.UseVisualStyleBackColor = true;
+            Guardar.Location = new Point(12, 12);
+            Guardar.Name = "Guardar";
+            Guardar.Size = new Size(112, 34);
+            Guardar.TabIndex = 0;
+            Guardar.Text = "Nuevo";
+            Guardar.UseVisualStyleBackColor = true;
+            Guardar.Click += btnNuevo_Click;
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Left;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(1, 41);
+            dataGridView1.Location = new Point(12, 72);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(559, 226);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(776, 408);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick_1;
             // 
-            // Business_Entity_list
+            // BusinessEntityList
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(561, 270);
+            ClientSize = new Size(800, 492);
             Controls.Add(dataGridView1);
-            Controls.Add(button1);
-            Margin = new Padding(2, 2, 2, 2);
-            Name = "Business_Entity_list";
-            Text = "Business_Entity_list";
+            Controls.Add(Guardar);
+            Name = "BusinessEntityList";
+            Text = "BusinessEntityList";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -69,5 +72,11 @@
 
         private Button button1;
         private DataGridView dataGridView1;
-    }
+    private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Se deja vacío para que el Designer no dé error
+        }
+
+        private Button Guardar;
+    } 
 }

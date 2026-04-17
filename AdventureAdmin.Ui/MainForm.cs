@@ -3,6 +3,7 @@ using AdventureAdmin.Ui.CreditCard;
 using AdventureAdmin.Ui.Location;
 using AdventureAdmin.Ui.Product;
 using Microsoft.Extensions.DependencyInjection;
+using AdventureAdmin.Ui.Business_Entity;
 
 namespace AdventureAdmin;
 
@@ -63,7 +64,8 @@ public partial class MainForm : Form
 
     private void businessEntityToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        var businessEntityList = Program.ServiceProvider.GetRequiredService<BusinessEntityList>();
+        businessEntityList.Show();
     }
 
     private void locationToolStripMenuItem_Click(object sender, EventArgs e)

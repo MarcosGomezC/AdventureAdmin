@@ -56,7 +56,8 @@ public class ScrapReasonServiceTests
 
         var result = await service.GetList(s => s.ScrapReasonId != 2);
 
-        Assert.Equal(2, result.Count);
+        Assert.Equal(2, result.Count); 
+
         Assert.Contains(result, s => s.ScrapReasonId == 1);
         Assert.Contains(result, s => s.ScrapReasonId == 3);
         Assert.DoesNotContain(result, s => s.ScrapReasonId == 2);
